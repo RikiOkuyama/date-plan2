@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Bot, User, Sparkles, CheckCircle2, RefreshCw } from 'lucide-react';
 import { Header } from '../components/layout/Header';
@@ -78,8 +78,7 @@ export function PlanEditPage() {
   }, [messages, isTyping]);
 
   if (!currentPlan) {
-    navigate('/');
-    return null;
+    return <Navigate to="/" replace />;
   }
 
   const handleSend = async (overrideInput?: string) => {

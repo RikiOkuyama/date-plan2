@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Clock, MapPin, Sparkles, MessageSquare, CheckCircle2, ChevronDown, ChevronUp, Lightbulb, Train } from 'lucide-react';
 import { Header } from '../components/layout/Header';
@@ -11,13 +11,11 @@ import { usePlanStore } from '../store/usePlanStore';
 export function PlanResultPage() {
   const navigate = useNavigate();
   const { currentPlan, updateMissionCompleted } = usePlanStore();
-  const { addMemory } = useMemoryStore();
   const [showCost, setShowCost] = useState(true);
   const [showMissions, setShowMissions] = useState(true);
 
   if (!currentPlan) {
-    navigate('/');
-    return null;
+    return <Navigate to="/" replace />;
   }
 
   const handleComplete = () => {

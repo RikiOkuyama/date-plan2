@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Camera, Check, Plus, X, MapPin, CheckCircle2 } from 'lucide-react';
 import { Header } from '../components/layout/Header';
@@ -41,8 +41,7 @@ export function MemoryRecordPage() {
   const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
   if (!currentPlan) {
-    navigate('/');
-    return null;
+    return <Navigate to="/" replace />;
   }
 
   const toggleVisited = (spotId: string) => {
