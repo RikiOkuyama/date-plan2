@@ -36,7 +36,13 @@ export function GalleryPage() {
               >
                 {/* 写真グリッド */}
                 <div className="relative">
-                  {memory.photos.length === 1 ? (
+                  {memory.photos.length === 0 ? (
+                    <img
+                      src={memory.spot.imageUrl}
+                      alt={memory.spot.name}
+                      className="w-full h-52 object-cover opacity-80"
+                    />
+                  ) : memory.photos.length === 1 ? (
                     <img
                       src={memory.photos[0]}
                       alt={memory.spot.name}

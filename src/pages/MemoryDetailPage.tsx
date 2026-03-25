@@ -131,15 +131,20 @@ export function MemoryDetailPage() {
         ) : (
           <div className="relative">
             <img src={memory.spot.imageUrl} alt={memory.spot.name} className="w-full h-64 object-cover" />
-            {isEditing && (
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center gap-2 text-white"
-              >
-                <Camera size={32} />
-                <span className="text-sm font-bold">写真を追加する</span>
-              </button>
-            )}
+            <button
+              onClick={() => { setIsEditing(true); setTimeout(() => fileInputRef.current?.click(), 50); }}
+              disabled={isUploading}
+              className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center gap-2 text-white"
+            >
+              {isUploading ? (
+                <div className="w-8 h-8 rounded-full border-2 border-white/40 border-t-white animate-spin" />
+              ) : (
+                <>
+                  <Camera size={32} />
+                  <span className="text-sm font-bold">写真を追加する</span>
+                </>
+              )}
+            </button>
           </div>
         )}
 
