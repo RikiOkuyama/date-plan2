@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, MapPin, Award, Edit2, Check, Calendar, Plus, X, Camera, Image } from 'lucide-react';
+import { Star, MapPin, Award, Edit2, Check, Calendar, Plus, X, Camera, Image, Trash2 } from 'lucide-react';
 import { Header } from '../components/layout/Header';
 import { useMemoryStore } from '../store/useMemoryStore';
 import { Button } from '../components/common/Button';
@@ -18,7 +18,8 @@ function fileToDataUrl(file: File): Promise<string> {
 export function MemoryDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { memories, updateMemory } = useMemoryStore();
+  const { memories, updateMemory, deleteMemory } = useMemoryStore();
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const memory = memories.find(m => m.id === id);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -77,9 +78,14 @@ export function MemoryDetailPage() {
               <Check size={20} className="text-rose-500" />
             </button>
           ) : (
-            <button onClick={() => setIsEditing(true)} className="p-1 rounded-full hover:bg-gray-100">
-              <Edit2 size={20} className="text-gray-600" />
-            </button>
+            <div className="flex items-center gap-1">
+              <button onClick={() => setShowDeleteConfirm(true)} className="p-1 rounded-full hover:bg-gray-100">
+                <Trash2 size={20} className="text-gray-400" />
+              </button>
+              <button onClick={() => setIsEditing(true)} className="p-1 rounded-full hover:bg-gray-100">
+                <Edit2 size={20} className="text-gray-600" />
+              </button>
+            </div>
           )
         }
       />
@@ -292,6 +298,42 @@ export function MemoryDetailPage() {
               className="max-w-full max-h-full object-contain"
               onClick={e => e.stopPropagation()}
             />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 削除確認モーダル */}
+      <AnimatePresence>
+        {showDeleteConfirm && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/50 flex items-end justify-center"
+            onClick={() => setShowDeleteConfirm(false)}
+          >
+            <motion.div
+              initial={{ y: 100 }}
+              animate={{ y: 0 }}
+              exit={{ y: 100 }}
+              className="bg-white w-full max-w-md rounded-t-3xl p-6"
+              onClick={e => e.stopPropagation()}
+            >
+              <h3 className="font-black text-gray-900 text-lg text-center mb-1">この思い出を削除する？</h3>
+              <p className="text-sm text-gray-400 text-center mb-6">削除すると元に戻せません</p>
+              <div className="flex gap-3">
+                <Button variant="outline" onClick={() => setShowDeleteConfirm(false)} className="flex-1">
+                  キャンセル
+                </Button>
+                <button
+                  onClick={() => { deleteMemory(memory.id); navigate('/gallery'); }}
+                  className="flex-1 bg-red-500 text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2"
+                >
+                  <Trash2 size={16} />
+                  削除する
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -7,6 +7,7 @@ interface MemoryStore {
   memories: Memory[];
   addMemory: (memory: Memory) => void;
   updateMemory: (id: string, updates: Partial<Memory>) => void;
+  deleteMemory: (id: string) => void;
   getMemoryBySpot: (spotId: string) => Memory | undefined;
   getPrefectureCount: () => Record<string, number>;
 }
@@ -24,6 +25,10 @@ export const useMemoryStore = create<MemoryStore>()(
         set(state => ({
           memories: state.memories.map(m => m.id === id ? { ...m, ...updates } : m),
         }));
+      },
+
+      deleteMemory: (id) => {
+        set(state => ({ memories: state.memories.filter(m => m.id !== id) }));
       },
 
       getMemoryBySpot: (spotId) => {
