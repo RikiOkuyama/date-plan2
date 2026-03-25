@@ -24,7 +24,9 @@ function buildSystemContext(
   availableSpots: ReturnType<typeof usePlanStore.getState>['availableSpots']
 ): string {
   const durationLabel = { half: '半日', full: '一日', overnight: '1泊2日' }[plan.condition.duration];
-  const spotList = availableSpots.map(s =>
+  // availableSpotsが空の場合は現在のスケジュールのスポットを候補として使う
+  const spotSource = availableSpots.length > 0 ? availableSpots : plan.schedule.map(s => s.spot);
+  const spotList = spotSource.map(s =>
     `- ${s.name}（${s.category}、¥${[0,500,1500,3000,6000][s.priceLevel]}目安）`
   ).join('\n');
   const schedule = plan.schedule.map(s =>
@@ -80,17 +82,18 @@ export function PlanEditPage() {
     return null;
   }
 
-  const handleSend = async () => {
-    if (!input.trim() || isTyping) return;
+  const handleSend = async (overrideInput?: string) => {
+    const text = overrideInput ?? input;
+    if (!text.trim() || isTyping) return;
 
     const userMsg: Message = {
       id: Date.now().toString(),
       role: 'user',
-      content: input,
+      content: text,
       timestamp: new Date(),
     };
     setMessages(prev => [...prev, userMsg]);
-    const currentInput = input;
+    const currentInput = text;
     setInput('');
     setIsTyping(true);
 
@@ -129,19 +132,27 @@ export function PlanEditPage() {
 
       if (parsed.updated_schedule && parsed.updated_schedule.length > 0) {
         // スポット名でマッチングして実際のSpotオブジェクトに変換
+        const allKnownSpots = [
+          ...availableSpots,
+          ...currentPlan.schedule.map(s => s.spot),
+        ];
         const newSchedule: PlanScheduleItem[] = parsed.updated_schedule
           .map(item => {
-            const spot = availableSpots.find(s =>
+            const spot = allKnownSpots.find(s =>
               s.name === item.spot_name || s.name.includes(item.spot_name) || item.spot_name.includes(s.name)
-            ) ?? currentPlan.schedule.find(s => s.spot.name === item.spot_name)?.spot;
+            );
 
-            if (!spot) return null;
+            // スポットが見つからない場合は現在のスケジュールの同じ順番のスポットを流用
+            const fallbackSpot = currentPlan.schedule[parsed.updated_schedule!.indexOf(item)]?.spot;
+            const resolvedSpot = spot ?? fallbackSpot;
+            if (!resolvedSpot) return null;
+
             return {
               time: item.time,
-              spot,
+              spot: resolvedSpot,
               duration: item.duration || '約2時間',
               memo: item.memo || '',
-              estimatedCost: [0, 500, 1500, 3000, 6000][spot.priceLevel],
+              estimatedCost: [0, 500, 1500, 3000, 6000][resolvedSpot.priceLevel],
             } as PlanScheduleItem;
           })
           .filter((s): s is PlanScheduleItem => s !== null);
@@ -159,7 +170,8 @@ export function PlanEditPage() {
         planUpdated,
         timestamp: new Date(),
       }]);
-    } catch {
+    } catch (err) {
+      console.error('[PlanEdit] Error:', err);
       setMessages(prev => [...prev, {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
@@ -266,7 +278,7 @@ export function PlanEditPage() {
           {quickReplies.map(qr => (
             <button
               key={qr}
-              onClick={() => setInput(qr)}
+              onClick={() => handleSend(qr)}
               className="flex-shrink-0 text-xs bg-white border border-rose-200 text-rose-500 px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-rose-50"
             >
               {qr}

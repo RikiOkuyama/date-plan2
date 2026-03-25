@@ -16,7 +16,7 @@ function getClient(): GoogleGenerativeAI {
 
 export async function generateText(prompt: string): Promise<string> {
   const client = getClient();
-  const model = client.getGenerativeModel({ model: 'gemini-1.5-flash' });
+  const model = client.getGenerativeModel({ model: 'gemini-2.5-flash' });
   const result = await model.generateContent(prompt);
   return result.response.text();
 }
@@ -26,19 +26,18 @@ export async function chatWithHistory(
   userMessage: string
 ): Promise<string> {
   const client = getClient();
-  const model = client.getGenerativeModel({ model: 'gemini-1.5-flash' });
-
-  const chat = model.startChat({
-    history: history.map(h => ({
-      role: h.role,
-      parts: [{ text: h.parts }],
-    })),
-    generationConfig: {
-      maxOutputTokens: 2048,
-    },
+  const model = client.getGenerativeModel({
+    model: 'gemini-2.5-flash',
+    // @ts-expect-error thinkingConfig is supported but not yet typed in this SDK version
+    generationConfig: { thinkingConfig: { thinkingBudget: 0 }, maxOutputTokens: 2048 },
   });
 
-  const result = await chat.sendMessage(userMessage);
+  const contents = [
+    ...history.map(h => ({ role: h.role, parts: [{ text: h.parts }] })),
+    { role: 'user' as const, parts: [{ text: userMessage }] },
+  ];
+
+  const result = await model.generateContent({ contents });
   return result.response.text();
 }
 
@@ -47,7 +46,7 @@ export async function generateChatSuggestions(
   planSummary: string
 ): Promise<string[]> {
   const client = getClient();
-  const model = client.getGenerativeModel({ model: 'gemini-1.5-flash' });
+  const model = client.getGenerativeModel({ model: 'gemini-2.5-flash' });
   const prompt = `デートプランのAI編集チャットです。
 現在のプラン概要: ${planSummary}
 
