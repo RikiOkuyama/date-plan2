@@ -7,8 +7,6 @@ import { Button } from '../components/common/Button';
 import { CostSimulation } from '../components/plan/CostSimulation';
 import { MissionCard } from '../components/plan/MissionCard';
 import { usePlanStore } from '../store/usePlanStore';
-import { useMemoryStore } from '../store/useMemoryStore';
-import type { Memory } from '../types';
 
 export function PlanResultPage() {
   const navigate = useNavigate();
@@ -23,20 +21,7 @@ export function PlanResultPage() {
   }
 
   const handleComplete = () => {
-    currentPlan.schedule.forEach(item => {
-      const memory: Memory = {
-        id: `mem-${Date.now()}-${item.spot.id}`,
-        planId: currentPlan.id,
-        spotId: item.spot.id,
-        spot: item.spot,
-        photos: [item.spot.imageUrl],
-        rating: 0,
-        note: '',
-        visitedAt: new Date().toISOString().split('T')[0],
-      };
-      addMemory(memory);
-    });
-    navigate('/gallery');
+    navigate('/plan/record');
   };
 
   const durationLabel = { half: '半日', full: '一日', overnight: '1泊2日' }[currentPlan.condition.duration];

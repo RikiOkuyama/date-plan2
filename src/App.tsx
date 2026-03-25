@@ -9,6 +9,7 @@ import { PlanEditPage } from './pages/PlanEditPage';
 import { MemoryMapPage } from './pages/MemoryMapPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { MemoryDetailPage } from './pages/MemoryDetailPage';
+import { MemoryRecordPage } from './pages/MemoryRecordPage';
 import { BadgesPage } from './pages/BadgesPage';
 
 function AppContent() {
@@ -23,6 +24,7 @@ function AppContent() {
         <Route path="/plan/edit" element={<PlanEditPage />} />
         <Route path="/memories" element={<MemoryMapPage />} />
         <Route path="/memories/:id" element={<MemoryDetailPage />} />
+        <Route path="/plan/record" element={<MemoryRecordPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/badges" element={<BadgesPage />} />
       </Routes>
