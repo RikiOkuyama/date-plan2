@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Clock, MapPin, Sparkles, MessageSquare, CheckCircle2, ChevronDown, ChevronUp, Lightbulb, Train } from 'lucide-react';
+import { Clock, MapPin, Sparkles, MessageSquare, CheckCircle2, ChevronDown, ChevronUp, Lightbulb, Train, Navigation, Footprints, ExternalLink } from 'lucide-react';
 import { Header } from '../components/layout/Header';
 import { Button } from '../components/common/Button';
 import { CostSimulation } from '../components/plan/CostSimulation';
@@ -119,10 +119,43 @@ export function PlanResultPage() {
                   )}
                 </div>
                 {/* 移動情報 */}
-                {item.transportToNext && i < currentPlan.schedule.length - 1 && (
-                  <div className="flex items-center gap-1.5 text-xs text-gray-400 pl-12 py-1">
-                    <Train size={11} className="flex-shrink-0" />
-                    <span>{item.transportToNext}</span>
+                {i < currentPlan.schedule.length - 1 && (
+                  <div className="pl-12 py-1">
+                    {item.routeToNext ? (
+                      <div className="flex items-center gap-2 bg-blue-50 rounded-xl px-3 py-2">
+                        <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                          {item.routeToNext.mode === 'walking' ? (
+                            <Footprints size={13} className="text-blue-500 flex-shrink-0" />
+                          ) : (
+                            <Train size={13} className="text-blue-500 flex-shrink-0" />
+                          )}
+                          <span className="text-xs text-blue-700 font-medium truncate">
+                            {item.routeToNext.description}
+                          </span>
+                          {item.routeToNext.estimatedFare > 0 && (
+                            <span className="text-xs text-blue-500 flex-shrink-0">
+                              ¥{item.routeToNext.estimatedFare}
+                            </span>
+                          )}
+                        </div>
+                        <a
+                          href={item.routeToNext.mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={e => e.stopPropagation()}
+                          className="flex items-center gap-1 text-xs text-blue-500 font-medium flex-shrink-0"
+                        >
+                          <Navigation size={11} />
+                          <span>Maps</span>
+                          <ExternalLink size={10} />
+                        </a>
+                      </div>
+                    ) : item.transportToNext ? (
+                      <div className="flex items-center gap-1.5 text-xs text-gray-400">
+                        <Train size={11} className="flex-shrink-0" />
+                        <span>{item.transportToNext}</span>
+                      </div>
+                    ) : null}
                   </div>
                 )}
               </motion.div>

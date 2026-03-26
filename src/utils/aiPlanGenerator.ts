@@ -1,5 +1,6 @@
-import type { MatchedSpot, DatePlan, PlanCondition, PlanScheduleItem, CostBreakdown, Mission } from '../types';
+import type { MatchedSpot, DatePlan, PlanCondition, PlanScheduleItem, CostBreakdown, Mission, RouteInfo } from '../types';
 import { generateText, isApiKeyConfigured } from './gemini';
+import { getRoute } from './maps';
 
 const COST_PER_PRICE_LEVEL: Record<number, number> = {
   1: 500,
@@ -41,7 +42,7 @@ function generateMissions(spots: MatchedSpot[]): Mission[] {
   return [...extraMissions.slice(0, 1), ...baseMissions].slice(0, 3);
 }
 
-function generateCostBreakdown(schedule: PlanScheduleItem[]): CostBreakdown {
+function generateCostBreakdown(schedule: PlanScheduleItem[], routeTransportTotal?: number): CostBreakdown {
   const food = schedule
     .filter(s => s.spot.category.includes('グルメ') || s.spot.category.includes('食'))
     .reduce((sum, s) => sum + COST_PER_PRICE_LEVEL[s.spot.priceLevel] * 1.5, 800);
@@ -50,13 +51,14 @@ function generateCostBreakdown(schedule: PlanScheduleItem[]): CostBreakdown {
     .filter(s => ['アート・展示', '展望台', 'アクティビティ', '展望台・夜景'].includes(s.spot.category))
     .reduce((sum, s) => sum + COST_PER_PRICE_LEVEL[s.spot.priceLevel], 0);
 
-  const transport = 600 + schedule.length * 200;
+  // ルート計算がある場合は実際の交通費、なければ固定推定値
+  const transport = routeTransportTotal ?? (600 + schedule.length * 200);
   const cafe = 600;
   const shopping = 0;
 
   return {
     food: Math.round(food),
-    transport,
+    transport: Math.round(transport),
     admission: Math.round(admission),
     cafe,
     shopping,
@@ -156,7 +158,8 @@ ${spotList}
 
 export async function generateDatePlan(
   condition: PlanCondition,
-  matchedSpots: MatchedSpot[]
+  matchedSpots: MatchedSpot[],
+  startLocation?: { lat: number; lng: number } | null
 ): Promise<DatePlan> {
   const prioritized = [
     ...matchedSpots.filter(ms => ms.priority === 'high'),
@@ -203,7 +206,25 @@ export async function generateDatePlan(
     });
   });
 
-  const costBreakdown = generateCostBreakdown(schedule);
+  // 現在地→スポット間のルートを計算
+  let routeTransportTotal: number | undefined;
+  if (startLocation && schedule.length > 0) {
+    try {
+      const routeInfos: RouteInfo[] = [];
+      let prevPos = startLocation;
+      for (const item of schedule) {
+        const route = await getRoute(prevPos, { ...item.spot });
+        routeInfos.push(route);
+        item.routeToNext = route;
+        prevPos = { lat: item.spot.lat, lng: item.spot.lng };
+      }
+      routeTransportTotal = routeInfos.reduce((sum, r) => sum + r.estimatedFare, 0);
+    } catch (e) {
+      console.warn('[generateDatePlan] route calc failed:', e);
+    }
+  }
+
+  const costBreakdown = generateCostBreakdown(schedule, routeTransportTotal);
   const missions = generateMissions(prioritized);
 
   return {

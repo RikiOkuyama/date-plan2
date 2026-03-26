@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { usePlanStore } from '../store/usePlanStore';
+import { getCurrentPosition } from '../utils/maps';
 
 const MESSAGES = [
   'マッチしたスポットを分析中...',
@@ -18,7 +19,10 @@ export function GeneratingPage() {
   const { generatePlan, isGenerating, currentPlan } = usePlanStore();
 
   useEffect(() => {
-    generatePlan();
+    (async () => {
+      const location = await getCurrentPosition();
+      await generatePlan(location);
+    })();
   }, []);
 
   useEffect(() => {

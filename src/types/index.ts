@@ -33,6 +33,15 @@ export interface PlanCondition {
   duration: 'half' | 'full' | 'overnight';
 }
 
+export interface RouteInfo {
+  distanceMeters: number;
+  durationMinutes: number;
+  mode: 'walking' | 'transit';
+  description: string;
+  estimatedFare: number;
+  mapsUrl: string;
+}
+
 export interface PlanScheduleItem {
   time: string;
   spot: Spot;
@@ -40,6 +49,7 @@ export interface PlanScheduleItem {
   memo: string;
   tip?: string;
   transportToNext?: string;
+  routeToNext?: RouteInfo;
   estimatedCost: number;
 }
 

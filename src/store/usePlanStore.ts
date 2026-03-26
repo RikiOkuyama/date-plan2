@@ -11,11 +11,12 @@ interface PlanStore {
   currentPlan: DatePlan | null;
   savedPlans: DatePlan[];
   isGenerating: boolean;
+  startLocation: { lat: number; lng: number } | null;
 
   setCondition: (condition: PlanCondition) => void;
   loadSpots: (area: string) => void;
   addSwipeResult: (result: SwipeResult) => void;
-  generatePlan: () => Promise<void>;
+  generatePlan: (startLocation?: { lat: number; lng: number } | null) => Promise<void>;
   setCurrentPlan: (plan: DatePlan) => void;
   updateSchedule: (schedule: PlanScheduleItem[], aiSummary?: string) => void;
   updateMissionCompleted: (missionId: string, photoUrl?: string) => void;
@@ -31,6 +32,7 @@ export const usePlanStore = create<PlanStore>()(
       currentPlan: null,
       savedPlans: [],
       isGenerating: false,
+      startLocation: null,
 
       setCondition: (condition) => {
         set({ condition });
@@ -45,7 +47,8 @@ export const usePlanStore = create<PlanStore>()(
         set(state => ({ swipeResults: [...state.swipeResults, result] }));
       },
 
-      generatePlan: async () => {
+      generatePlan: async (startLocation = null) => {
+        set({ startLocation });
         const { condition, swipeResults, availableSpots } = get();
         if (!condition) return;
 
@@ -76,7 +79,7 @@ export const usePlanStore = create<PlanStore>()(
         }
 
         try {
-          const plan = await generateDatePlan(condition, matchedSpots);
+          const plan = await generateDatePlan(condition, matchedSpots, startLocation);
           set(state => ({
             currentPlan: plan,
             savedPlans: [plan, ...state.savedPlans],
