@@ -942,20 +942,240 @@ export const mockSpots: Spot[] = [
     rating: 4.4,
     tags: ['カフェ', 'おしゃれ', 'ローカル', 'ニッチ', '穴場'],
   },
+
+  // === 青森県 ===
+  { id: 'aomori-1', name: '奥入瀬渓流', category: '自然・散歩', description: '十和田湖から流れる渓流沿いの遊歩道。苔むした岩と滝が続く秘境感あふれる絶景コース。', address: '青森県十和田市大字奥瀬', lat: 40.4574, lng: 140.8881, prefecture: '青森県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['自然', '渓谷', '散歩', '絶景'] },
+  { id: 'aomori-2', name: '弘前城', category: '城・歴史', description: '日本最北の現存天守を持つ城。春の桜が圧倒的な美しさで「日本一の桜」とも称される。', address: '青森県弘前市下白銀町1', lat: 40.6081, lng: 140.4632, prefecture: '青森県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['城', '桜', '歴史', '公園'] },
+  { id: 'aomori-3', name: '青森ねぶた祭会館（ワ・ラッセ）', category: 'アート・展示', description: '迫力の実物大ねぶたが常設展示。夏祭りの熱気を年中体感できる青森を代表する文化施設。', address: '青森県青森市安方1-1-1', lat: 40.8451, lng: 140.7426, prefecture: '青森県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.3, tags: ['文化', 'アート', '祭り'] },
+
+  // === 岩手県 ===
+  { id: 'iwate-1', name: '中尊寺金色堂', category: '神社・寺', description: '平安時代に建立された世界遺産。全面に金箔が施された金色堂は息をのむ美しさ。', address: '岩手県西磐井郡平泉町平泉衣関202', lat: 38.9873, lng: 141.1108, prefecture: '岩手県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['世界遺産', '歴史', '寺院'] },
+  { id: 'iwate-2', name: '猊鼻渓', category: '自然・川', description: '砂鉄川沿いの峡谷を舟下りで巡る。高さ50mの断崖と清流が織りなす絶景。', address: '岩手県一関市東山町長坂滝ノ上', lat: 38.9261, lng: 141.2583, prefecture: '岩手県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['舟下り', '渓谷', '自然'] },
+  { id: 'iwate-3', name: '盛岡・冷麺横丁', category: 'グルメ・観光', description: '本場の盛岡冷麺が食べ比べできるエリア。弾力ある麺と旨みたっぷりのスープが絶品。', address: '岩手県盛岡市大通1丁目', lat: 39.7009, lng: 141.1527, prefecture: '岩手県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 2, rating: 4.3, tags: ['グルメ', '冷麺', 'ローカルフード'] },
+
+  // === 宮城県 ===
+  { id: 'miyagi-1', name: '松島', category: '自然・海', description: '日本三景のひとつ。260余りの島々が浮かぶ絶景を遊覧船から眺め、牡蠣や笹かまを堪能。', address: '宮城県宮城郡松島町松島', lat: 38.3686, lng: 141.0697, prefecture: '宮城県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['絶景', '日本三景', 'グルメ', '海'] },
+  { id: 'miyagi-2', name: '蔵王お釜', category: '自然・山', description: '蔵王連峰の火口湖。季節や天気で色が変わるエメラルドグリーンの湖は息をのむ絶景。', address: '宮城県刈田郡蔵王町遠刈田温泉倉石岳', lat: 38.1438, lng: 140.4420, prefecture: '宮城県', imageUrl: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['絶景', '火口湖', '自然'] },
+  { id: 'miyagi-3', name: '仙台・牛タン通り', category: 'グルメ・観光', description: '仙台駅に隣接する名物グルメ街。分厚く炭火で焼かれた牛タンは仙台旅行のマストグルメ。', address: '宮城県仙台市青葉区中央1-1-1', lat: 38.2602, lng: 140.8822, prefecture: '宮城県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 3, rating: 4.4, tags: ['グルメ', '牛タン', 'B級グルメ'] },
+
+  // === 秋田県 ===
+  { id: 'akita-1', name: '田沢湖', category: '自然・湖', description: '日本一深い湖。冬も凍らないコバルトブルーの湖面と、湖畔の金色たつこ像が絵になる。', address: '秋田県仙北市西木町小山田', lat: 39.7118, lng: 140.6605, prefecture: '秋田県', imageUrl: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['湖', '自然', '絶景'] },
+  { id: 'akita-2', name: '角館武家屋敷通り', category: '城・歴史', description: '江戸時代の武家屋敷が保存された「みちのくの小京都」。枝垂れ桜の季節は格別の美しさ。', address: '秋田県仙北市角館町東勝楽丁', lat: 39.5935, lng: 140.5581, prefecture: '秋田県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['歴史', '桜', '武家屋敷'] },
+  { id: 'akita-3', name: '乳頭温泉郷', category: '温泉', description: '秘湯として名高い山奥の温泉群。乳白色の湯が漂う露天風呂は非日常感たっぷり。', address: '秋田県仙北市田沢湖生保内', lat: 39.7600, lng: 140.6927, prefecture: '秋田県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.8, tags: ['温泉', '秘湯', '露天風呂'] },
+
+  // === 山形県 ===
+  { id: 'yamagata-1', name: '銀山温泉', category: '温泉', description: '大正ロマン漂う木造旅館が川沿いに並ぶ絶景温泉街。夜はガス灯が灯り、まるでタイムスリップしたよう。', address: '山形県尾花沢市銀山新畑', lat: 38.6369, lng: 140.5684, prefecture: '山形県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.8, tags: ['温泉', '大正ロマン', 'インスタ映え', '夜景'] },
+  { id: 'yamagata-2', name: '山寺（立石寺）', category: '神社・寺', description: '860段の石段を登ると絶景が広がる。松尾芭蕉が「閑さや岩にしみ入る蟬の声」と詠んだ場所。', address: '山形県山形市山寺4456-1', lat: 38.3182, lng: 140.4387, prefecture: '山形県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.6, tags: ['寺院', '絶景', '歴史', '運動'] },
+  { id: 'yamagata-3', name: '蔵王温泉スキー場', category: 'アクティビティ', description: '冬は樹氷（アイスモンスター）が有名。温泉とスキーを同時に楽しめる東北屈指のリゾート。', address: '山形県山形市蔵王温泉', lat: 38.1459, lng: 140.4274, prefecture: '山形県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 3, rating: 4.5, tags: ['温泉', 'スキー', '樹氷', '自然'] },
+
+  // === 福島県 ===
+  { id: 'fukushima-1', name: '五色沼', category: '自然・湖', description: '磐梯山の火山活動で生まれた色とりどりの湖沼群。コバルトブルー・エメラルドグリーンが神秘的。', address: '福島県耶麻郡北塩原村大字桧原', lat: 37.6789, lng: 140.0615, prefecture: '福島県', imageUrl: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['湖', '絶景', '自然'] },
+  { id: 'fukushima-2', name: '大内宿', category: 'グルメ・観光', description: '江戸時代の宿場町が完全保存。茅葺き屋根の古民家が並ぶ中、ネギ1本で食べる高遠そばが名物。', address: '福島県南会津郡下郷町大字大内', lat: 37.2386, lng: 139.8734, prefecture: '福島県', imageUrl: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['宿場町', '歴史', 'グルメ', 'インスタ映え'] },
+  { id: 'fukushima-3', name: 'スパリゾートハワイアンズ', category: 'アクティビティ', description: '常磐炭鉱の温泉水を利用した大型温泉リゾート。フラダンスショーと大型プールが一日中楽しめる。', address: '福島県いわき市常磐藤原町蕨平50', lat: 37.0428, lng: 140.8523, prefecture: '福島県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.3, tags: ['温泉', 'プール', 'ショー'] },
+
+  // === 茨城県 ===
+  { id: 'ibaraki-1', name: '袋田の滝', category: '自然・滝', description: '日本三名瀑のひとつ。四度の滝とも呼ばれ、岩壁を四段に流れ落ちる迫力の滝。冬の氷瀑も圧巻。', address: '茨城県久慈郡大子町袋田3-19', lat: 36.7718, lng: 140.4083, prefecture: '茨城県', imageUrl: 'https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=600&q=80', priceLevel: 1, rating: 4.6, tags: ['滝', '自然', '絶景'] },
+  { id: 'ibaraki-2', name: '国営ひたち海浜公園', category: '公園・自然', description: '春はネモフィラ、秋はコキアで埋め尽くされる絶景公園。青い丘は写真映え抜群のスポット。', address: '茨城県ひたちなか市馬渡字大沼605-4', lat: 36.3994, lng: 140.5968, prefecture: '茨城県', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88df5691cc5c?w=600&q=80', priceLevel: 1, rating: 4.8, tags: ['花畑', 'インスタ映え', '絶景', 'ネモフィラ'] },
+  { id: 'ibaraki-3', name: '偕楽園', category: '公園・自然', description: '水戸藩主が造った日本三名園のひとつ。2月〜3月の梅まつりは100種3000本の梅が咲き誇る。', address: '茨城県水戸市常磐町1-3-3', lat: 36.3792, lng: 140.4604, prefecture: '茨城県', imageUrl: 'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80', priceLevel: 1, rating: 4.4, tags: ['日本三名園', '梅', '庭園'] },
+
+  // === 栃木県 ===
+  { id: 'tochigi-1', name: '日光東照宮', category: '神社・寺', description: '徳川家康を祀る世界遺産。極彩色の陽明門は「日暮の門」とも呼ばれ、見飽きない精巧な彫刻が施されている。', address: '栃木県日光市山内2301', lat: 36.7580, lng: 139.5993, prefecture: '栃木県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 2, rating: 4.7, tags: ['世界遺産', '神社', '歴史'] },
+  { id: 'tochigi-2', name: '足利フラワーパーク', category: '公園・自然', description: '樹齢150年超の大藤棚が幻想的。夜のライトアップは「世界の夢の旅行先10か所」にも選ばれた。', address: '栃木県足利市迫間町607', lat: 36.3151, lng: 139.5201, prefecture: '栃木県', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88df5691cc5c?w=600&q=80', priceLevel: 2, rating: 4.8, tags: ['藤', '花', 'インスタ映え', '夜景'] },
+  { id: 'tochigi-3', name: '那須高原', category: '自然・散歩', description: '避暑地として人気の高原。牧場、温泉、アウトレットが点在し、一日中楽しめるデートに最適。', address: '栃木県那須郡那須町高久甲', lat: 37.1034, lng: 140.0640, prefecture: '栃木県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 2, rating: 4.4, tags: ['高原', '避暑地', '牧場', '温泉'] },
+
+  // === 群馬県 ===
+  { id: 'gunma-1', name: '草津温泉', category: '温泉', description: '日本最高峰の湯量を誇る名湯。湯畑を中心に老舗旅館が立ち並び、時間湯体験も楽しめる。', address: '群馬県吾妻郡草津町草津', lat: 36.6185, lng: 138.5963, prefecture: '群馬県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.8, tags: ['温泉', '湯畑', '名湯'] },
+  { id: 'gunma-2', name: '富岡製糸場', category: '城・歴史', description: '明治時代の官営模範工場として世界遺産に登録。近代日本の産業革命を体感できる歴史スポット。', address: '群馬県富岡市富岡1-1', lat: 36.2566, lng: 138.8873, prefecture: '群馬県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 1, rating: 4.3, tags: ['世界遺産', '歴史', '工場'] },
+  { id: 'gunma-3', name: '伊香保温泉・石段街', category: '温泉', description: '365段の石段を中心に温泉旅館や射的場が並ぶ昭和レトロな温泉街。黄金の湯が名物。', address: '群馬県渋川市伊香保町伊香保', lat: 36.4777, lng: 138.9003, prefecture: '群馬県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 2, rating: 4.4, tags: ['温泉', '石段', 'レトロ', '射的'] },
+
+  // === 埼玉県 ===
+  { id: 'saitama-1', name: '川越・小江戸', category: 'グルメ・観光', description: '蔵造りの町並みが残る「小江戸」。菓子屋横丁のサツマイモスイーツ巡りが人気デートコース。', address: '埼玉県川越市元町1丁目', lat: 35.9251, lng: 139.4855, prefecture: '埼玉県', imageUrl: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['蔵造り', '歴史', 'スイーツ', '散歩'] },
+  { id: 'saitama-2', name: '秩父・長瀞ライン下り', category: 'アクティビティ', description: '荒川上流の渓谷を舟で下るアドベンチャー体験。奇岩が続くライン下りはカップルに大人気。', address: '埼玉県秩父郡長瀞町長瀞489', lat: 36.1113, lng: 139.1066, prefecture: '埼玉県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['ライン下り', '渓谷', 'アウトドア'] },
+  { id: 'saitama-3', name: '武蔵丘陵森林公園', category: '公園・自然', description: '東京ドーム65個分の広大な国営公園。季節の花と自然の中でサイクリングが楽しめる。', address: '埼玉県比企郡滑川町山田1920', lat: 36.0651, lng: 139.3417, prefecture: '埼玉県', imageUrl: 'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80', priceLevel: 1, rating: 4.3, tags: ['公園', '自然', 'サイクリング', '花'] },
+
+  // === 千葉県 ===
+  { id: 'chiba-1', name: '鋸山・地獄のぞき', category: '自然・山', description: '岸壁から突き出た岩の先端から絶壁を見下ろす「地獄のぞき」は絶叫スポット。山頂の大仏も圧巻。', address: '千葉県安房郡鋸南町元名', lat: 35.1398, lng: 139.8360, prefecture: '千葉県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['絶景', '岩場', 'スリル', '大仏'] },
+  { id: 'chiba-2', name: '犬吠埼', category: '自然・海', description: '日本で最も早く初日の出が見られる場所のひとつ。白亜の灯台と荒波が打ち寄せる海岸が絵になる。', address: '千葉県銚子市犬吠埼9576', lat: 35.7075, lng: 140.8687, prefecture: '千葉県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 1, rating: 4.4, tags: ['灯台', '海', '初日の出', '絶景'] },
+  { id: 'chiba-3', name: '成田山新勝寺', category: '神社・寺', description: '年間1000万人以上が訪れる真言宗の大本山。参道には老舗うなぎ屋が並び食べ歩きも楽しい。', address: '千葉県成田市成田1', lat: 35.7777, lng: 140.3166, prefecture: '千葉県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['神社', '参道', 'グルメ', 'うなぎ'] },
+
+  // === 新潟県 ===
+  { id: 'niigata-1', name: '清津峡渓谷トンネル', category: 'アート・展示', description: '日本三大峡谷のひとつを貫くトンネル。水鏡に映る絶景とアートが融合した現代的な名所。', address: '新潟県十日町市小出', lat: 36.9537, lng: 138.6509, prefecture: '新潟県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 1, rating: 4.8, tags: ['アート', '絶景', 'インスタ映え', '渓谷'] },
+  { id: 'niigata-2', name: '佐渡島・金山', category: '城・歴史', description: '江戸時代の金山遺跡が残る世界遺産候補地。フェリーで渡る離島旅行はカップルの特別な思い出に。', address: '新潟県佐渡市下相川1305', lat: 38.0494, lng: 138.2355, prefecture: '新潟県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 2, rating: 4.4, tags: ['離島', '歴史', '金山', '世界遺産'] },
+  { id: 'niigata-3', name: '越後湯沢温泉', category: '温泉', description: '川端康成「雪国」の舞台。スキーリゾートと温泉が両立し、日本酒の利き酒コーナーも充実。', address: '新潟県南魚沼郡湯沢町湯沢', lat: 36.9278, lng: 138.8145, prefecture: '新潟県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.4, tags: ['温泉', 'スキー', '日本酒', '雪国'] },
+
+  // === 富山県 ===
+  { id: 'toyama-1', name: '立山黒部アルペンルート', category: '自然・山', description: 'トロリーバスやロープウェイを乗り継いで3000m級の山岳地帯を縦断。雪の大谷は壁の高さが20mにも達する。', address: '富山県中新川郡立山町芦峅寺', lat: 36.5750, lng: 137.5942, prefecture: '富山県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 3, rating: 4.8, tags: ['絶景', '山岳', '雪', '乗り物'] },
+  { id: 'toyama-2', name: '五箇山合掌造り集落', category: '城・歴史', description: '岐阜・白川郷と並ぶ世界遺産の合掌造り集落。冬の雪景色は特に幻想的で、冬デートに最高。', address: '富山県南砺市相倉', lat: 36.4310, lng: 136.8998, prefecture: '富山県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['世界遺産', '歴史', '合掌造り', '冬'] },
+  { id: 'toyama-3', name: '富山湾鮨', category: 'グルメ・観光', description: '日本海の宝庫・富山湾で獲れた新鮮な魚介を使った地元の寿司。ブリやホタルイカが絶品。', address: '富山県富山市桜橋通り', lat: 36.6959, lng: 137.2136, prefecture: '富山県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 3, rating: 4.6, tags: ['グルメ', '寿司', '海鮮', 'ホタルイカ'] },
+
+  // === 石川県 ===
+  { id: 'ishikawa-1', name: 'ひがし茶屋街', category: 'グルメ・観光', description: '金沢を代表する花街。江戸時代の茶屋建築が残る石畳の路地を歩きながら金箔スイーツを楽しめる。', address: '石川県金沢市東山1丁目', lat: 36.5726, lng: 136.6657, prefecture: '石川県', imageUrl: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['町並み', 'スイーツ', '金箔', 'インスタ映え'] },
+  { id: 'ishikawa-2', name: '兼六園', category: '公園・自然', description: '日本三名園のひとつ。四季折々の美しさを誇り、冬の雪吊りは金沢の冬の風物詩として有名。', address: '石川県金沢市兼六町1', lat: 36.5617, lng: 136.6617, prefecture: '石川県', imageUrl: 'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80', priceLevel: 1, rating: 4.6, tags: ['日本三名園', '庭園', '雪吊り'] },
+  { id: 'ishikawa-3', name: '輪島朝市', category: 'グルメ・観光', description: '千年の歴史を誇る朝市。地元の海産物や野菜が並び、おばちゃんとの会話も旅の醍醐味。', address: '石川県輪島市河井町1-115', lat: 37.3998, lng: 136.8987, prefecture: '石川県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 2, rating: 4.4, tags: ['朝市', 'グルメ', '海産物', 'ローカル'] },
+
+  // === 福井県 ===
+  { id: 'fukui-1', name: '東尋坊', category: '自然・海', description: '日本海に面した高さ25mの断崖絶壁。柱状節理の岩肌が荒波に削られた豪快な絶景スポット。', address: '福井県坂井市三国町安島64', lat: 36.2310, lng: 136.1219, prefecture: '福井県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['絶壁', '海', '絶景'] },
+  { id: 'fukui-2', name: '永平寺', category: '神社・寺', description: '道元禅師が開いた曹洞宗の大本山。杉木立の中に70以上の建物が立ち並ぶ厳かな空間。', address: '福井県吉田郡永平寺町志比5-15', lat: 36.0931, lng: 136.5048, prefecture: '福井県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['禅寺', '歴史', '杉木立'] },
+  { id: 'fukui-3', name: '恐竜博物館', category: 'アート・展示', description: '世界三大恐竜博物館のひとつ。実物大の恐竜骨格標本と迫力の映像展示でカップルも大興奮。', address: '福井県勝山市村岡町寺尾51-11', lat: 36.0622, lng: 136.5140, prefecture: '福井県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['博物館', '恐竜', 'ユニーク', '学び'] },
+
+  // === 山梨県 ===
+  { id: 'yamanashi-1', name: '河口湖', category: '自然・湖', description: '富士五湖のひとつ。湖越しに望む富士山の絶景はカップルに人気No.1。周辺のカフェも充実。', address: '山梨県南都留郡富士河口湖町', lat: 35.5113, lng: 138.7573, prefecture: '山梨県', imageUrl: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80', priceLevel: 2, rating: 4.7, tags: ['富士山', '湖', '絶景', 'カフェ'] },
+  { id: 'yamanashi-2', name: '山梨ワイナリー巡り', category: 'グルメ・観光', description: '日本ワインの本場・勝沼地区のワイナリー。試飲しながらブドウ畑を散歩するロマンティックなひととき。', address: '山梨県甲州市勝沼町', lat: 35.6877, lng: 138.7091, prefecture: '山梨県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['ワイン', 'ブドウ', 'グルメ', '試飲'] },
+  { id: 'yamanashi-3', name: '昇仙峡', category: '自然・渓谷', description: '花崗岩の奇岩が続く国内有数の渓谷美スポット。水晶の産地でもあり、宝石ショップも充実。', address: '山梨県甲府市猪狩町300-1', lat: 35.6831, lng: 138.5843, prefecture: '山梨県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 1, rating: 4.4, tags: ['渓谷', '奇岩', '水晶', '散歩'] },
+
+  // === 長野県 ===
+  { id: 'nagano-1', name: '上高地', category: '自然・山', description: '北アルプスの玄関口。河童橋から望む穂高連峰の絶景とエメラルドグリーンの梓川は圧倒的。', address: '長野県松本市安曇上高地', lat: 36.2396, lng: 137.6352, prefecture: '長野県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 2, rating: 4.9, tags: ['絶景', '北アルプス', '散歩', '自然'] },
+  { id: 'nagano-2', name: '軽井沢ハルニレテラス', category: 'カフェ・散歩', description: '清流沿いに並ぶおしゃれなショップとカフェが集まる軽井沢の人気エリア。マイナスイオンを感じながら優雅な時間。', address: '長野県北佐久郡軽井沢町長倉2148', lat: 36.3625, lng: 138.5960, prefecture: '長野県', imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['カフェ', 'おしゃれ', '散歩', '軽井沢'] },
+  { id: 'nagano-3', name: '善光寺', category: '神社・寺', description: '1400年の歴史を持つ無宗派の寺。「牛に引かれて善光寺参り」の故事でも有名。参道の蕎麦も絶品。', address: '長野県長野市元善町491', lat: 36.6610, lng: 138.1880, prefecture: '長野県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.6, tags: ['寺院', '歴史', 'そば', '参道'] },
+
+  // === 静岡県 ===
+  { id: 'shizuoka-1', name: '熱海・MOA美術館', category: 'アート・展示', description: '海を見下ろす高台に立つ美術館。国宝3点を含む東洋古美術が充実し、庭園からの相模湾の絶景も必見。', address: '静岡県熱海市桃山町26-2', lat: 35.1066, lng: 139.0771, prefecture: '静岡県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['美術館', 'アート', '絶景', '国宝'] },
+  { id: 'shizuoka-2', name: '清水港・三保の松原', category: '自然・海', description: '世界文化遺産の景勝地。7kmの白砂青松と霊峰富士が織りなす「日本の風景画」が眼前に広がる。', address: '静岡県静岡市清水区三保1338', lat: 34.9941, lng: 138.5229, prefecture: '静岡県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 1, rating: 4.6, tags: ['世界遺産', '富士山', '海', '絶景'] },
+  { id: 'shizuoka-3', name: '掛川花鳥園', category: 'アクティビティ', description: 'フクロウやバードを抱っこ・触れ合える体験型の花と鳥の楽園。フリーフライトショーも圧巻。', address: '静岡県掛川市南西郷1517', lat: 34.7553, lng: 137.9885, prefecture: '静岡県', imageUrl: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['動物', '体験', '花', 'フクロウ'] },
+
+  // === 愛知県 ===
+  { id: 'aichi-1', name: '名古屋城', category: '城・歴史', description: '金鯱で有名な天下の名城。再建された本丸御殿の障壁画は精巧で、名古屋観光の中心スポット。', address: '愛知県名古屋市中区本丸1-1', lat: 35.1852, lng: 136.8995, prefecture: '愛知県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 2, rating: 4.4, tags: ['城', '歴史', '金鯱'] },
+  { id: 'aichi-2', name: 'ジブリパーク', category: 'アクティビティ', description: '愛・地球博記念公園内に広がるスタジオジブリの世界観が体験できるテーマパーク。大人も子供も夢中に。', address: '愛知県長久手市茨ケ廻間乙1533-1', lat: 35.1833, lng: 137.0682, prefecture: '愛知県', imageUrl: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80', priceLevel: 3, rating: 4.7, tags: ['ジブリ', 'テーマパーク', 'ファンタジー'] },
+  { id: 'aichi-3', name: '熱田神宮', category: '神社・寺', description: '三種の神器のひとつ草薙剣を祀る由緒ある神社。境内のひつまぶしの名店「蓬莱軒」は必訪。', address: '愛知県名古屋市熱田区神宮1-1-1', lat: 35.1286, lng: 136.9078, prefecture: '愛知県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 3, rating: 4.5, tags: ['神社', '歴史', 'ひつまぶし', 'グルメ'] },
+
+  // === 岐阜県 ===
+  { id: 'gifu-1', name: '白川郷合掌造り集落', category: '城・歴史', description: '世界遺産に登録された合掌造りの村。冬の雪景色はライトアップされ、まるでおとぎ話の世界に迷い込んだよう。', address: '岐阜県大野郡白川村荻町', lat: 36.2573, lng: 136.9058, prefecture: '岐阜県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 1, rating: 4.8, tags: ['世界遺産', '合掌造り', '冬', '雪景色'] },
+  { id: 'gifu-2', name: '飛騨高山・古い町並み', category: 'グルメ・観光', description: '江戸時代の商家が立ち並ぶ「飛騨の小京都」。朝市や飛騨牛料理、さるぼぼ土産が充実。', address: '岐阜県高山市上三之町', lat: 36.1443, lng: 137.2542, prefecture: '岐阜県', imageUrl: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['町並み', '歴史', '飛騨牛', '朝市'] },
+  { id: 'gifu-3', name: '養老天命反転地', category: 'アート・展示', description: '荒川修作のアートが体感できる不思議なアートパーク。地面や建物が傾いた体験型の前衛芸術空間。', address: '岐阜県養老郡養老町高林1298-2', lat: 35.3046, lng: 136.5677, prefecture: '岐阜県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.3, tags: ['アート', 'ユニーク', '体験', '前衛'] },
+
+  // === 三重県 ===
+  { id: 'mie-1', name: '伊勢神宮', category: '神社・寺', description: '天照大御神を祀る日本最高の聖地。おはらい町・おかげ横丁の赤福や伊勢うどんも必食。', address: '三重県伊勢市宇治館町1', lat: 34.4553, lng: 136.7256, prefecture: '三重県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 2, rating: 4.8, tags: ['神社', '聖地', '赤福', 'グルメ'] },
+  { id: 'mie-2', name: '鳥羽水族館', category: 'アクティビティ', description: '日本最大級の水族館。ジュゴンが見られる世界唯一の施設。カワウソやセイウチのショーも人気。', address: '三重県鳥羽市鳥羽3-3-6', lat: 34.4837, lng: 136.8435, prefecture: '三重県', imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['水族館', 'ジュゴン', 'デート', '動物'] },
+  { id: 'mie-3', name: '夫婦岩（二見浦）', category: '神社・寺', description: '縁結びの神社・二見興玉神社の沖に立つ夫婦岩。日の出に鳥居越しに富士山が見える神秘的な場所。', address: '三重県伊勢市二見町江575', lat: 34.4965, lng: 136.7878, prefecture: '三重県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['縁結び', '海', '絶景', '日の出'] },
+
+  // === 滋賀県 ===
+  { id: 'shiga-1', name: '彦根城', category: '城・歴史', description: '国宝に指定された天守を持つ城。ゆるキャラ「ひこにゃん」が人気で、桜の季節は特に美しい。', address: '滋賀県彦根市金亀町1-1', lat: 35.2763, lng: 136.2525, prefecture: '滋賀県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['国宝', '城', '桜', 'ひこにゃん'] },
+  { id: 'shiga-2', name: 'メタセコイア並木', category: '自然・散歩', description: 'マキノ高原の農道に続く2.4kmのメタセコイアの並木道。四季折々の色が美しく日本の絶景100選。', address: '滋賀県高島市マキノ町牧野', lat: 35.5024, lng: 136.1564, prefecture: '滋賀県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['並木道', '絶景', 'インスタ映え', '四季'] },
+  { id: 'shiga-3', name: '琵琶湖テラス', category: '展望台・夜景', description: 'びわ湖バレイのゴンドラで登る標高1100mのテラス。眼下に広がる琵琶湖の全景は息をのむ絶景。', address: '滋賀県大津市木戸1547-1', lat: 35.0889, lng: 135.9279, prefecture: '滋賀県', imageUrl: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80', priceLevel: 2, rating: 4.7, tags: ['展望台', '琵琶湖', '絶景', 'インスタ映え'] },
+
+  // === 兵庫県 ===
+  { id: 'hyogo-1', name: '姫路城', category: '城・歴史', description: '白鷺城と呼ばれる日本最大の木造城郭。世界遺産で国宝の純白の天守は日本の城の代名詞。', address: '兵庫県姫路市本町68', lat: 34.8394, lng: 134.6939, prefecture: '兵庫県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 2, rating: 4.8, tags: ['世界遺産', '国宝', '城', '白鷺城'] },
+  { id: 'hyogo-2', name: '有馬温泉', category: '温泉', description: '日本最古の温泉のひとつ。金泉・銀泉の二種類の源泉が楽しめ、神戸市街からのアクセスも抜群。', address: '兵庫県神戸市北区有馬町', lat: 34.7991, lng: 135.2467, prefecture: '兵庫県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.6, tags: ['温泉', '金泉', '銀泉', '老舗'] },
+  { id: 'hyogo-3', name: '神戸北野異人館街', category: 'グルメ・観光', description: '明治時代の外国人居留地に残る洋館群。風見鶏の館やうろこの家などロマンティックな館巡りが人気。', address: '兵庫県神戸市中央区北野町3-13-3', lat: 34.6993, lng: 135.1879, prefecture: '兵庫県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.4, tags: ['洋館', '歴史', 'インスタ映え', '観光'] },
+
+  // === 奈良県 ===
+  { id: 'nara-1', name: '奈良公園', category: '公園・自然', description: '世界遺産に囲まれた広大な公園に1000頭超の野生の鹿が生息。鹿せんべいを食べる鹿に囲まれる体験は唯一無二。', address: '奈良県奈良市登大路町30', lat: 34.6851, lng: 135.8397, prefecture: '奈良県', imageUrl: 'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['鹿', '公園', '世界遺産', 'インスタ映え'] },
+  { id: 'nara-2', name: '吉野山', category: '自然・山', description: 'シロヤマザクラが3万本咲く日本一の花見スポット。下千本から上千本まで山全体が桜に染まる絶景。', address: '奈良県吉野郡吉野町吉野山', lat: 34.3714, lng: 135.8574, prefecture: '奈良県', imageUrl: 'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['桜', '絶景', '花見', '山'] },
+  { id: 'nara-3', name: '東大寺', category: '神社・寺', description: '世界最大級の木造建築・大仏殿に鎮座する高さ15mの奈良の大仏。柱の穴をくぐると健康になれると言われる。', address: '奈良県奈良市雑司町406-1', lat: 34.6888, lng: 135.8398, prefecture: '奈良県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['大仏', '世界遺産', '寺院', '歴史'] },
+
+  // === 和歌山県 ===
+  { id: 'wakayama-1', name: '熊野古道', category: '自然・散歩', description: '世界遺産の巡礼路。石畳の参詣道が続く苔むした森の中を歩くと、自然と心が清められる体験。', address: '和歌山県田辺市中辺路町', lat: 33.8975, lng: 135.6354, prefecture: '和歌山県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['世界遺産', '参道', '森', 'ハイキング'] },
+  { id: 'wakayama-2', name: '那智の滝', category: '自然・滝', description: '落差133mの日本最大の滝。熊野那智大社の御神体として信仰される神秘的な名瀑。', address: '和歌山県東牟婁郡那智勝浦町那智山', lat: 33.6673, lng: 135.8899, prefecture: '和歌山県', imageUrl: 'https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=600&q=80', priceLevel: 1, rating: 4.8, tags: ['滝', '世界遺産', '神社', '絶景'] },
+  { id: 'wakayama-3', name: '白浜温泉・三段壁', category: '温泉', description: '関西屈指のリゾート温泉地。断崖絶壁の三段壁や円月島など絶景を楽しみながら温泉でリラックス。', address: '和歌山県西牟婁郡白浜町', lat: 33.6813, lng: 135.3595, prefecture: '和歌山県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.5, tags: ['温泉', 'リゾート', '海', '絶壁'] },
+
+  // === 鳥取県 ===
+  { id: 'tottori-1', name: '鳥取砂丘', category: '自然・散歩', description: '日本唯一の大砂丘。高さ47mの砂の壁と眼下に広がる日本海の絶景はまさに圧倒的スケール。', address: '鳥取県鳥取市福部町湯山', lat: 35.5397, lng: 134.2272, prefecture: '鳥取県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 1, rating: 4.6, tags: ['砂丘', '絶景', '自然', '日本海'] },
+  { id: 'tottori-2', name: '砂の美術館', category: 'アート・展示', description: '鳥取砂丘の砂で作られた世界最大級の砂像が展示される野外美術館。毎年テーマが変わり何度でも楽しめる。', address: '鳥取県鳥取市福部町湯山2083-17', lat: 35.5447, lng: 134.2318, prefecture: '鳥取県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['砂像', 'アート', 'ユニーク'] },
+  { id: 'tottori-3', name: '三朝温泉', category: '温泉', description: '世界有数のラドン含有量を誇る奇跡の温泉。温泉街の川湯（無料の足湯）でのんびりも最高。', address: '鳥取県東伯郡三朝町三朝', lat: 35.3696, lng: 133.8697, prefecture: '鳥取県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 2, rating: 4.4, tags: ['温泉', '足湯', 'ラドン', '温泉街'] },
+
+  // === 島根県 ===
+  { id: 'shimane-1', name: '出雲大社', category: '神社・寺', description: '縁結びの神・大国主命を祀る最強パワースポット。60年に一度の遷宮が行われる格式ある大社。', address: '島根県出雲市大社町杵築東195', lat: 35.4015, lng: 132.6854, prefecture: '島根県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.8, tags: ['縁結び', '神社', 'パワースポット', '歴史'] },
+  { id: 'shimane-2', name: '足立美術館', category: 'アート・展示', description: '20年連続日本一の日本庭園を誇る美術館。横山大観の作品と生きた絵画のような庭園が圧倒的美しさ。', address: '島根県安来市古川町320', lat: 35.4301, lng: 133.3273, prefecture: '島根県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.9, tags: ['美術館', '日本庭園', 'アート', '日本一'] },
+  { id: 'shimane-3', name: '玉造温泉', category: '温泉', description: '神話の国・島根を代表する古湯。「美肌の湯」として名高く、2人で入る貸し切り風呂が人気。', address: '島根県松江市玉湯町玉造', lat: 35.4119, lng: 132.9614, prefecture: '島根県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.5, tags: ['温泉', '美肌', '貸切風呂', '古湯'] },
+
+  // === 岡山県 ===
+  { id: 'okayama-1', name: '倉敷美観地区', category: 'グルメ・観光', description: '江戸時代の白壁土蔵が並ぶ水路沿いの景観が美しい街。デニム・倉敷帆布など地元産業の工房も見学できる。', address: '岡山県倉敷市阿知2-23-1', lat: 34.5956, lng: 133.7694, prefecture: '岡山県', imageUrl: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['白壁', '水路', '散歩', 'インスタ映え'] },
+  { id: 'okayama-2', name: '後楽園', category: '公園・自然', description: '日本三名園のひとつ。岡山城を借景に広がる回遊式庭園で、四季折々の花と芝生が美しい。', address: '岡山県岡山市北区後楽園1-5', lat: 34.6656, lng: 133.9373, prefecture: '岡山県', imageUrl: 'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['日本三名園', '庭園', '岡山城'] },
+  { id: 'okayama-3', name: '牛窓オリーブ園', category: '自然・散歩', description: '「日本のエーゲ海」と呼ばれる牛窓の絶景とオリーブの丘。地中海ムードたっぷりのデートスポット。', address: '岡山県瀬戸内市牛窓町牛窓4506-2', lat: 34.6225, lng: 134.1632, prefecture: '岡山県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['オリーブ', '海', 'エーゲ海', 'インスタ映え'] },
+
+  // === 広島県 ===
+  { id: 'hiroshima-1', name: '宮島・厳島神社', category: '神社・寺', description: '海に浮かぶ朱色の大鳥居が象徴の世界遺産。満潮時に鳥居が海に浮かぶ景色は日本三景のひとつ。', address: '広島県廿日市市宮島町1-1', lat: 34.2956, lng: 132.3193, prefecture: '広島県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 2, rating: 4.9, tags: ['世界遺産', '鳥居', '日本三景', 'もみじ饅頭'] },
+  { id: 'hiroshima-2', name: '原爆ドーム・平和記念公園', category: '城・歴史', description: '世界遺産として保存された負の遺産。平和記念資料館とともに訪れ、2人で平和の大切さを感じて。', address: '広島県広島市中区大手町1-10', lat: 34.3955, lng: 132.4532, prefecture: '広島県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['世界遺産', '歴史', '平和', '学び'] },
+  { id: 'hiroshima-3', name: 'ひろしま美術館', category: 'アート・展示', description: 'ルノワールやモネなど印象派の名画を中心に収蔵。緑豊かな中央公園内の落ち着いた美術館。', address: '広島県広島市中区基町3-2', lat: 34.3999, lng: 132.4577, prefecture: '広島県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.3, tags: ['美術館', '印象派', 'アート', '落ち着き'] },
+
+  // === 山口県 ===
+  { id: 'yamaguchi-1', name: '角島大橋', category: '自然・海', description: '離島に架かる全長1780mの橋。エメラルドグリーンの海と橋のコントラストはCMや映画のロケ地にもなる。', address: '山口県下関市豊北町角島', lat: 34.3678, lng: 130.8803, prefecture: '山口県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 1, rating: 4.8, tags: ['橋', '海', 'インスタ映え', 'ドライブ'] },
+  { id: 'yamaguchi-2', name: '錦帯橋', category: '城・歴史', description: '5連のアーチが美しい日本三名橋のひとつ。岩国城との組み合わせが絵になる江戸時代の木造橋。', address: '山口県岩国市岩国1-4-3', lat: 34.1481, lng: 132.1750, prefecture: '山口県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 1, rating: 4.6, tags: ['橋', '歴史', '桜', '日本三名橋'] },
+  { id: 'yamaguchi-3', name: '秋吉台・秋芳洞', category: '自然・散歩', description: '日本最大のカルスト台地と鍾乳洞。無数の奇岩が広がる台地と幻想的な地底湖は自然の神秘そのもの。', address: '山口県美祢市秋芳町秋吉', lat: 34.2206, lng: 131.3053, prefecture: '山口県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['鍾乳洞', '自然', '奇岩', 'カルスト'] },
+
+  // === 徳島県 ===
+  { id: 'tokushima-1', name: '大歩危・小歩危', category: '自然・渓谷', description: '吉野川が結晶片岩を削って生んだ絶景渓谷。遊覧船から眺める奇岩と翡翠色の水面が美しい。', address: '徳島県三好市山城町西宇', lat: 33.8899, lng: 133.8490, prefecture: '徳島県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['渓谷', '遊覧船', '絶景', '秘境'] },
+  { id: 'tokushima-2', name: '祖谷のかずら橋', category: '自然・散歩', description: 'シラクチカズラで編まれた長さ45mの吊り橋。足元がスカスカで高さ14mのスリルは本物のデートスポット。', address: '徳島県三好市西祖谷山村善徳162-2', lat: 33.9056, lng: 133.8924, prefecture: '徳島県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['吊り橋', 'スリル', '秘境', '自然'] },
+  { id: 'tokushima-3', name: '阿波踊り会館', category: 'アート・展示', description: '日本三大盆踊りのひとつ・阿波踊りを年中体験できる施設。舞台で実際に踊る体験も大人気。', address: '徳島県徳島市新町橋2-20', lat: 34.0706, lng: 134.5592, prefecture: '徳島県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.3, tags: ['阿波踊り', '文化', '体験', '踊り'] },
+
+  // === 香川県 ===
+  { id: 'kagawa-1', name: '直島', category: 'アート・展示', description: '瀬戸内海に浮かぶアートの島。草間彌生の水玉カボチャや地中美術館など世界的アート作品が点在。', address: '香川県香川郡直島町', lat: 34.4626, lng: 133.9886, prefecture: '香川県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 2, rating: 4.8, tags: ['アート', '離島', 'カボチャ', '草間彌生'] },
+  { id: 'kagawa-2', name: '栗林公園', category: '公園・自然', description: '「特別名勝」に指定された大名庭園。6つの池と13の築山を回遊する庭園は、ミシュランガイドで三つ星を獲得。', address: '香川県高松市栗林町1-20-16', lat: 34.3351, lng: 134.0549, prefecture: '香川県', imageUrl: 'https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['庭園', '名勝', 'ミシュラン', '散歩'] },
+  { id: 'kagawa-3', name: '本場讃岐うどんの名店巡り', category: 'グルメ・観光', description: 'コシの強い讃岐うどんを食べ歩き。天ぷらを乗せて100〜200円台で食べられる地元民御用達のセルフ店が最高。', address: '香川県高松市', lat: 34.3401, lng: 134.0434, prefecture: '香川県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['うどん', 'グルメ', 'B級', 'セルフ'] },
+
+  // === 愛媛県 ===
+  { id: 'ehime-1', name: '道後温泉', category: '温泉', description: '日本最古の温泉。明治時代の本館は国の重要文化財で、夏目漱石「坊っちゃん」の舞台として有名。', address: '愛媛県松山市道後湯之町5-6', lat: 33.8529, lng: 132.7878, prefecture: '愛媛県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 2, rating: 4.7, tags: ['温泉', '最古', '文化財', '坊っちゃん'] },
+  { id: 'ehime-2', name: 'しまなみ海道', category: 'アクティビティ', description: '瀬戸内海の島々を結ぶ絶景の橋。サイクリングの聖地として世界から観光客が訪れるロマンティックなルート。', address: '愛媛県今治市', lat: 34.0661, lng: 132.9981, prefecture: '愛媛県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 2, rating: 4.8, tags: ['サイクリング', '橋', '瀬戸内', '絶景'] },
+  { id: 'ehime-3', name: '内子町・町並み保存地区', category: 'グルメ・観光', description: '江戸〜明治時代の白壁の商家が残る美しい町並み。木蝋と和紙の産地として栄えた歴史ある街。', address: '愛媛県喜多郡内子町内子', lat: 33.5379, lng: 132.6587, prefecture: '愛媛県', imageUrl: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['町並み', '歴史', '白壁', '散歩'] },
+
+  // === 高知県 ===
+  { id: 'kochi-1', name: '桂浜', category: '自然・海', description: '坂本龍馬の像が立つ高知を代表する景勝地。太平洋に臨む豪快な弓状の浜辺と松林が絵になる。', address: '高知県高知市浦戸', lat: 33.4893, lng: 133.5698, prefecture: '高知県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['海', '龍馬', '絶景', '太平洋'] },
+  { id: 'kochi-2', name: '四万十川', category: '自然・川', description: '「最後の清流」と呼ばれる日本最後の自然河川。沈下橋を渡るドライブや鮎・うなぎ料理が魅力。', address: '高知県四万十市', lat: 32.9953, lng: 132.9481, prefecture: '高知県', imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80', priceLevel: 2, rating: 4.7, tags: ['清流', 'グルメ', '沈下橋', '川'] },
+  { id: 'kochi-3', name: 'ひろめ市場', category: 'グルメ・観光', description: '高知の台所。カツオの藁焼きたたきを食べながら地元民に交じってワイワイ飲める超ローカルな市場。', address: '高知県高知市帯屋町2-3-1', lat: 33.5594, lng: 133.5316, prefecture: '高知県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['カツオ', '市場', 'ローカル', 'グルメ'] },
+
+  // === 佐賀県 ===
+  { id: 'saga-1', name: '呼子・朝市と活イカ', category: 'グルメ・観光', description: '日本三大朝市のひとつ。透き通るほど新鮮な活イカの刺身はここでしか食べられない絶品グルメ。', address: '佐賀県唐津市呼子町呼子4-1', lat: 33.5244, lng: 129.8806, prefecture: '佐賀県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 3, rating: 4.7, tags: ['イカ', 'グルメ', '朝市', '海鮮'] },
+  { id: 'saga-2', name: '祐徳稲荷神社', category: '神社・寺', description: '日本三大稲荷のひとつ。朱色の社殿と廊下が重なる階段の景色は圧巻で、SNS映えもバッチリ。', address: '佐賀県鹿島市古枝乙1855', lat: 33.1080, lng: 130.1065, prefecture: '佐賀県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['稲荷', '神社', 'インスタ映え', '朱色'] },
+  { id: 'saga-3', name: '嬉野温泉', category: '温泉', description: '日本三大美肌の湯のひとつ。温泉湯豆腐が名物で、肌がつるつるになる美肌効果は折り紙付き。', address: '佐賀県嬉野市嬉野町下宿甲', lat: 33.0988, lng: 130.0960, prefecture: '佐賀県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['温泉', '美肌', '温泉湯豆腐', 'グルメ'] },
+
+  // === 長崎県 ===
+  { id: 'nagasaki-1', name: 'グラバー園', category: 'グルメ・観光', description: '長崎港を一望する丘に立つ明治期の西洋建築群。ハートの石畳を2人で踏むと恋が叶うと言われる。', address: '長崎県長崎市南山手町8-1', lat: 32.7365, lng: 129.8722, prefecture: '長崎県', imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['洋館', '夜景', 'ハート石', '縁結び'] },
+  { id: 'nagasaki-2', name: 'ハウステンボス', category: 'アクティビティ', description: 'オランダの街並みを再現した日本最大のテーマパーク。光の王国イルミネーションは世界最大規模。', address: '長崎県佐世保市ハウステンボス町1-1', lat: 33.0909, lng: 129.7755, prefecture: '長崎県', imageUrl: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80', priceLevel: 3, rating: 4.5, tags: ['テーマパーク', 'イルミネーション', 'オランダ', '夜景'] },
+  { id: 'nagasaki-3', name: '軍艦島（端島）', category: '城・歴史', description: '廃墟となった炭鉱の島への上陸ツアー。世界遺産の産業遺構と異様な廃墟景観は唯一無二。', address: '長崎県長崎市高島町端島', lat: 32.6292, lng: 129.7383, prefecture: '長崎県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 3, rating: 4.6, tags: ['世界遺産', '廃墟', 'ツアー', '歴史'] },
+
+  // === 熊本県 ===
+  { id: 'kumamoto-1', name: '熊本城', category: '城・歴史', description: '日本三名城のひとつ。地震からの復興が進む姿は感動的で、くまモンと記念撮影も楽しい。', address: '熊本県熊本市中央区本丸1-1', lat: 32.8065, lng: 130.7059, prefecture: '熊本県', imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['城', '歴史', 'くまモン', '復興'] },
+  { id: 'kumamoto-2', name: '黒川温泉', category: '温泉', description: '山里に点在する30軒の旅館から露天風呂めぐりができる人気温泉郷。入湯手形を持って湯めぐりが定番。', address: '熊本県阿蘇郡南小国町満願寺', lat: 33.0681, lng: 131.1091, prefecture: '熊本県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.8, tags: ['温泉', '湯めぐり', '露天風呂', '山里'] },
+  { id: 'kumamoto-3', name: '阿蘇山・大観峰', category: '自然・山', description: '世界最大級のカルデラを誇る阿蘇山。大観峰からの外輪山の360度パノラマは日本最高クラスの絶景。', address: '熊本県阿蘇市山田', lat: 33.0072, lng: 131.0520, prefecture: '熊本県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 1, rating: 4.7, tags: ['火山', '絶景', '360度', 'パノラマ'] },
+
+  // === 大分県 ===
+  { id: 'oita-1', name: '別府温泉・地獄めぐり', category: '温泉', description: '血の池地獄・竜巻地獄など個性豊かな8つの源泉を巡る。7種類の温泉が楽しめる別府名物ツアー。', address: '大分県別府市鉄輪559-1', lat: 33.2886, lng: 131.4930, prefecture: '大分県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 2, rating: 4.6, tags: ['温泉', '地獄', 'ツアー', '絶景'] },
+  { id: 'oita-2', name: '湯布院・金鱗湖', category: '温泉', description: '湯煙が漂う小さな湖と由布岳の絶景。朝霧の幻想的な景色と温泉街のオシャレカフェが人気のデートスポット。', address: '大分県由布市湯布院町川上1561-1', lat: 33.2649, lng: 131.3696, prefecture: '大分県', imageUrl: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80', priceLevel: 2, rating: 4.7, tags: ['温泉', '霧', '湖', 'インスタ映え'] },
+  { id: 'oita-3', name: 'くじゅう花公園', category: '公園・自然', description: '九重連山の麓に広がる高原の花公園。春から秋まで色とりどりの花が咲き誇り、ウォーキングデートに最高。', address: '大分県竹田市久住町大字久住4050', lat: 33.0597, lng: 131.2451, prefecture: '大分県', imageUrl: 'https://images.unsplash.com/photo-1490750967868-88df5691cc5c?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['花公園', '高原', '散歩', '花'] },
+
+  // === 宮崎県 ===
+  { id: 'miyazaki-1', name: '高千穂峡', category: '自然・渓谷', description: '阿蘇溶岩が刻んだ柱状節理の渓谷。ボートで眺める真名井の滝は日本の滝百選で、神話の地としても有名。', address: '宮崎県西臼杵郡高千穂町三田井御塩井', lat: 32.7164, lng: 131.3065, prefecture: '宮崎県', imageUrl: 'https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=600&q=80', priceLevel: 2, rating: 4.8, tags: ['渓谷', '滝', 'ボート', '神話'] },
+  { id: 'miyazaki-2', name: '鵜戸神宮', category: '神社・寺', description: '洞窟の中に本殿が鎮座する奇妙な神社。縁結びの神様で、運玉投げに成功すると願いが叶うとされる。', address: '宮崎県日南市大字宮浦3232', lat: 31.6297, lng: 131.4397, prefecture: '宮崎県', imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['神社', '縁結び', '洞窟', 'ユニーク'] },
+  { id: 'miyazaki-3', name: '青島・亜熱帯植物群落', category: '自然・海', description: 'ワシントニアパームが茂る亜熱帯ムードの離島。鬼の洗濯板と青島神社の組み合わせは異国情緒たっぷり。', address: '宮崎県宮崎市青島2-13-1', lat: 31.7841, lng: 131.4783, prefecture: '宮崎県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 1, rating: 4.4, tags: ['離島', '海', '亜熱帯', 'インスタ映え'] },
+
+  // === 鹿児島県 ===
+  { id: 'kagoshima-1', name: '桜島', category: '自然・山', description: '今も活動する活火山の島。フェリーで渡る絶景と足湯、黒豚・黒牛グルメが揃う鹿児島のシンボル。', address: '鹿児島県鹿児島市桜島横山町', lat: 31.5811, lng: 130.6571, prefecture: '鹿児島県', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', priceLevel: 1, rating: 4.6, tags: ['火山', 'フェリー', '足湯', '絶景'] },
+  { id: 'kagoshima-2', name: '知覧武家屋敷群', category: '城・歴史', description: '九州の小京都と呼ばれる薩摩藩の武家屋敷群。石垣と生け垣が続く静謐な空間は日本の原風景そのもの。', address: '鹿児島県南九州市知覧町郡6051', lat: 31.3649, lng: 130.5115, prefecture: '鹿児島県', imageUrl: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80', priceLevel: 1, rating: 4.5, tags: ['武家屋敷', '歴史', '庭園', '散歩'] },
+  { id: 'kagoshima-3', name: '霧島温泉郷', category: '温泉', description: '霧島山系に点在する温泉。酸性から中性まで多様な泉質が楽しめ、日本神話発祥の地としても有名。', address: '鹿児島県霧島市牧園町高千穂', lat: 31.9143, lng: 130.8559, prefecture: '鹿児島県', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80', priceLevel: 3, rating: 4.6, tags: ['温泉', '霧島', '神話', '絶景'] },
+
+  // === 沖縄県 ===
+  { id: 'okinawa-1', name: '美ら海水族館', category: 'アクティビティ', description: '世界最大級の水槽でジンベエザメとマンタが泳ぐ圧倒的な光景。イルカショーも人気で1日中楽しめる。', address: '沖縄県国頭郡本部町石川424', lat: 26.6938, lng: 127.8772, prefecture: '沖縄県', imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80', priceLevel: 2, rating: 4.8, tags: ['水族館', 'ジンベエザメ', 'デート', '沖縄'] },
+  { id: 'okinawa-2', name: '慶良間諸島', category: '自然・海', description: '世界屈指の透明度を誇る「慶良間ブルー」の海。シュノーケリングでウミガメと泳げる離島のパラダイス。', address: '沖縄県島尻郡座間味村阿嘉', lat: 26.2060, lng: 127.3070, prefecture: '沖縄県', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', priceLevel: 3, rating: 4.9, tags: ['海', '離島', 'シュノーケル', 'ウミガメ'] },
+  { id: 'okinawa-3', name: '国際通り・牧志公設市場', category: 'グルメ・観光', description: '沖縄のメインストリートと市場。チャンプルーやソーキそば、サーターアンダギーなど沖縄グルメを食べ歩き。', address: '沖縄県那覇市牧志3-2-10', lat: 26.2149, lng: 127.6893, prefecture: '沖縄県', imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', priceLevel: 2, rating: 4.5, tags: ['グルメ', '沖縄料理', '市場', '食べ歩き'] },
 ];
 
-const AREA_PREFECTURE_MAP: Record<string, string[]> = {
-  '東京': ['東京都'],
-  '神奈川': ['神奈川県'],
-  '大阪': ['大阪府'],
-  '京都': ['京都府'],
-  '北海道': ['北海道'],
-  '福岡': ['福岡県'],
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+const PREFECTURE_MAP: Record<string, string> = {
+  '北海道': '北海道', '青森': '青森県', '岩手': '岩手県', '宮城': '宮城県',
+  '秋田': '秋田県', '山形': '山形県', '福島': '福島県', '茨城': '茨城県',
+  '栃木': '栃木県', '群馬': '群馬県', '埼玉': '埼玉県', '千葉': '千葉県',
+  '東京': '東京都', '神奈川': '神奈川県', '新潟': '新潟県', '富山': '富山県',
+  '石川': '石川県', '福井': '福井県', '山梨': '山梨県', '長野': '長野県',
+  '岐阜': '岐阜県', '静岡': '静岡県', '愛知': '愛知県', '三重': '三重県',
+  '滋賀': '滋賀県', '京都': '京都府', '大阪': '大阪府', '兵庫': '兵庫県',
+  '奈良': '奈良県', '和歌山': '和歌山県', '鳥取': '鳥取県', '島根': '島根県',
+  '岡山': '岡山県', '広島': '広島県', '山口': '山口県', '徳島': '徳島県',
+  '香川': '香川県', '愛媛': '愛媛県', '高知': '高知県', '福岡': '福岡県',
+  '佐賀': '佐賀県', '長崎': '長崎県', '熊本': '熊本県', '大分': '大分県',
+  '宮崎': '宮崎県', '鹿児島': '鹿児島県', '沖縄': '沖縄県',
 };
 
 export function getSpotsByArea(area: string): Spot[] {
-  if (area === '全国') return mockSpots;
-  const prefectures = AREA_PREFECTURE_MAP[area];
-  if (!prefectures) return mockSpots;
-  return mockSpots.filter(s => prefectures.includes(s.prefecture));
+  const pool = area === '全国'
+    ? mockSpots
+    : mockSpots.filter(s => s.prefecture === PREFECTURE_MAP[area]);
+  return shuffle(pool.length > 0 ? pool : mockSpots);
 }

@@ -24,7 +24,7 @@ export function SwipePage() {
 
   const currentUser = phase === 'user1' ? 'user1' : 'user2';
   const currentUserName = phase === 'user1' ? user1Name : user2Name;
-  const spots = availableSpots.slice(0, 8);
+  const spots = availableSpots.slice(0, 15);
 
   useEffect(() => {
     if (!condition) navigate('/plan/new');
