@@ -9,37 +9,68 @@ const COST_PER_PRICE_LEVEL: Record<number, number> = {
   4: 6000,
 };
 
-function generateMissions(spots: MatchedSpot[]): Mission[] {
-  const missionTemplates = [
-    { text: '2人で同じものを注文してみよう', difficulty: 'easy' as const },
-    { text: '2人一緒に空の写真を撮ろう', difficulty: 'easy' as const },
-    { text: '今日の思い出を一言で表すと？お互い答えてみよう', difficulty: 'easy' as const },
-    { text: 'お互いへの感謝を3つ言い合おう', difficulty: 'easy' as const },
-    { text: 'メニューを見ずに直感で注文してみよう', difficulty: 'hard' as const },
-    { text: '今日行った場所で一番気に入ったシーンを2人で再現してみよう', difficulty: 'hard' as const },
-    { text: '地図なしで近くの隠れた名所を探してみよう', difficulty: 'hard' as const },
-  ];
+const FALLBACK_MISSIONS: Array<{ text: string; difficulty: 'easy' | 'hard' }> = [
+  { text: '2人で同じものを注文してみよう', difficulty: 'easy' },
+  { text: '2人一緒に空の写真を撮ろう', difficulty: 'easy' },
+  { text: '今日の思い出を一言で表すと？お互い答えてみよう', difficulty: 'easy' },
+  { text: 'お互いへの感謝を3つ言い合おう', difficulty: 'easy' },
+  { text: 'メニューを見ずに直感で注文してみよう', difficulty: 'hard' },
+  { text: '今日行った場所で一番気に入ったシーンを2人で再現してみよう', difficulty: 'hard' },
+  { text: '地図なしで近くの隠れた名所を探してみよう', difficulty: 'hard' },
+];
 
+function generateFallbackMissions(spots: MatchedSpot[]): Mission[] {
   const categories = spots.map(ms => ms.spot.category);
-  const extraMissions: Mission[] = [];
-
+  const extra: Mission[] = [];
   if (categories.some(c => c.includes('海') || c.includes('自然'))) {
-    extraMissions.push({ id: 'm-sea-1', text: '2人で同じ形の石や貝殻を探してみよう', difficulty: 'easy', completed: false });
-    extraMissions.push({ id: 'm-sea-2', text: '日没前に砂浜や地面に2人の名前を書いてみよう', difficulty: 'hard', completed: false });
+    extra.push({ id: 'm-sea-1', text: '2人で同じ形の石や貝殻を探してみよう', difficulty: 'easy', completed: false });
   }
   if (categories.some(c => c.includes('グルメ') || c.includes('食'))) {
-    extraMissions.push({ id: 'm-food-1', text: '食べたことがないメニューを1品チャレンジしよう', difficulty: 'hard', completed: false });
+    extra.push({ id: 'm-food-1', text: '食べたことがないメニューを1品チャレンジしよう', difficulty: 'hard', completed: false });
   }
-  if (categories.some(c => c.includes('公園') || c.includes('自然'))) {
-    extraMissions.push({ id: 'm-park-1', text: '公園の一番いいベンチを2人で探してみよう', difficulty: 'easy', completed: false });
-  }
-
-  const baseMissions = missionTemplates
+  const base = [...FALLBACK_MISSIONS]
     .sort(() => Math.random() - 0.5)
     .slice(0, 2)
     .map((m, i) => ({ ...m, id: `m-base-${i}`, completed: false }));
+  return [...extra.slice(0, 1), ...base].slice(0, 3);
+}
 
-  return [...extraMissions.slice(0, 1), ...baseMissions].slice(0, 3);
+async function generateMissions(spots: MatchedSpot[], condition: PlanCondition): Promise<Mission[]> {
+  if (!isApiKeyConfigured()) {
+    return generateFallbackMissions(spots);
+  }
+
+  const spotList = spots.map(ms => `${ms.spot.name}（${ms.spot.category}）`).join('、');
+  const prompt = `カップル向けデートのミッションを3つ生成してください。
+訪問スポット: ${spotList}
+エリア: ${condition.area}
+
+ミッションは「2人で一緒にやること」「その場所・雰囲気ならではの体験」を意識してください。
+easyは気軽にできること、hardは少し勇気・チャレンジが必要なことです。
+スポットの雰囲気や特徴を活かした、毎回異なるユニークなミッションにしてください。
+
+以下のJSON配列のみで返してください（他のテキスト不要）:
+[
+  {"text": "ミッション内容（20文字以内）", "difficulty": "easy"},
+  {"text": "ミッション内容（20文字以内）", "difficulty": "easy"},
+  {"text": "ミッション内容（20文字以内）", "difficulty": "hard"}
+]`;
+
+  try {
+    const raw = await generateText(prompt);
+    const match = raw.match(/\[[\s\S]*\]/);
+    if (!match) throw new Error('parse failed');
+    const parsed = JSON.parse(match[0]);
+    if (!Array.isArray(parsed)) throw new Error('not array');
+    return parsed.slice(0, 3).map((m: { text: string; difficulty: string }, i: number) => ({
+      id: `m-ai-${i}`,
+      text: m.text,
+      difficulty: (m.difficulty === 'hard' ? 'hard' : 'easy') as 'easy' | 'hard',
+      completed: false,
+    }));
+  } catch {
+    return generateFallbackMissions(spots);
+  }
 }
 
 function generateCostBreakdown(schedule: PlanScheduleItem[], routeTransportTotal?: number): CostBreakdown {
@@ -225,7 +256,7 @@ export async function generateDatePlan(
   }
 
   const costBreakdown = generateCostBreakdown(schedule, routeTransportTotal);
-  const missions = generateMissions(prioritized);
+  const missions = await generateMissions(prioritized, condition);
 
   return {
     id: `plan-${Date.now()}`,
